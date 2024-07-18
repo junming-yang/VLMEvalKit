@@ -114,14 +114,14 @@ def split_model(model_name):
         for j in range(num_layer):
             device_map[f'language_model.model.layers.{layer_cnt}'] = rank + world_size * i
             layer_cnt += 1
-    device_map['vision_model'] = 0
-    device_map['mlp1'] = 0
-    device_map['language_model.model.tok_embeddings'] = 0
-    device_map['language_model.model.embed_tokens'] = 0
-    device_map['language_model.output'] = 0
-    device_map['language_model.model.norm'] = 0
-    device_map['language_model.lm_head'] = 0
-    device_map[f'language_model.model.layers.{num_layers - 1}'] = 0
+    device_map['vision_model'] = rank
+    device_map['mlp1'] = rank
+    device_map['language_model.model.tok_embeddings'] = rank
+    device_map['language_model.model.embed_tokens'] = rank
+    device_map['language_model.output'] = rank
+    device_map['language_model.model.norm'] = rank
+    device_map['language_model.lm_head'] = rank
+    device_map[f'language_model.model.layers.{num_layers - 1}'] = rank
     return device_map
 
 
@@ -236,7 +236,7 @@ class InternVLChat(BaseModel):
 
     def generate_v1_2(self, message, dataset=None):
         self.INTERLEAVE = False
-        prompt, image_path = self.message_to_promptimg(message)
+        prompt, image_path = self.message_to_promptimg(message, dataset=dataset)
         image = Image.open(image_path).convert('RGB')
         image = image.resize((self.image_size, self.image_size))
         image_processor = CLIPImageProcessor.from_pretrained(self.model_path)
@@ -286,7 +286,7 @@ class InternVLChat(BaseModel):
             num_patches_list = []
             pixel_values_list = []
             for image_idx, file_name in enumerate(image_path):
-                upscale_flag = image_idx == 0 and listinstr(['MMMU_DEV_VAL'], dataset)
+                upscale_flag = image_idx == 0 and dataset is not None and listinstr(['MMMU_DEV_VAL'], dataset)
                 curr_pixel_values = load_image(
                     file_name, max_num=self.max_num, upscale=upscale_flag).cuda().to(torch.bfloat16)
                 num_patches_list.append(curr_pixel_values.size(0))
