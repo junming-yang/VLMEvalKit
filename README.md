@@ -1,23 +1,23 @@
+<div align="center">
+
 ![LOGO](http://opencompass.openxlab.space/utils/MMLB.jpg)
-<div align="center"><b>A Toolkit for Evaluating Large Vision-Language Models. </b></div>
 
-<div align="center">
-English | [<a href="/docs/zh-CN/README_zh-CN.md">简体中文</a>] | [<a href="/docs/ja/README_ja.md">日本語</a>]
-</div>
+<b>A Toolkit for Evaluating Large Vision-Language Models. </b>
 
-<div align="center">
-<a href="https://rank.opencompass.org.cn/leaderboard-multimodal">🏆 Learderboard </a> •
+[![][github-contributors-shield]][github-contributors-link] • [![][github-forks-shield]][github-forks-link] • [![][github-stars-shield]][github-stars-link] • [![][github-issues-shield]][github-issues-link] • [![][github-license-shield]][github-license-link]
+
+English | [简体中文](/docs/zh-CN/README_zh-CN.md) | [日本語](/docs/ja/README_ja.md)
+
+<a href="https://rank.opencompass.org.cn/leaderboard-multimodal">🏆 OC Learderboard </a> •
 <a href="#-datasets-models-and-evaluation-results">📊Datasets & Models </a> •
 <a href="#%EF%B8%8F-quickstart">🏗️Quickstart </a> •
 <a href="#%EF%B8%8F-development-guide">🛠️Development </a> •
 <a href="#-the-goal-of-vlmevalkit">🎯Goal </a> •
 <a href="#%EF%B8%8F-citation">🖊️Citation </a>
-</div>
 
-<div align="center">
-<a href="https://huggingface.co/spaces/opencompass/open_vlm_leaderboard">🤗 Leaderboard</a>
-<a href="https://openxlab.org.cn/apps/detail/kennyutc/open_mllm_leaderboard">(🤖 OpenXlab Mirror)</a>
-<a href="https://discord.gg/evDT4GZmxN">🔊 Discord Channel</a>
+<a href="https://huggingface.co/spaces/opencompass/open_vlm_leaderboard">🤗 HF Leaderboard</a> •
+<a href="https://discord.gg/evDT4GZmxN">🔊 Discord Channel</a> •
+<a href="https://www.arxiv.org/abs/2407.11691">📝 Technical Report</a>
 </div>
 
 
@@ -25,6 +25,8 @@ English | [<a href="/docs/zh-CN/README_zh-CN.md">简体中文</a>] | [<a href="/
 
 ## 🆕 News
 
+- **[2024-07-19]** We have supported [**GPT-4o-Mini**](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/), evaluation results coming soon🔥🔥🔥
+- **[2024-07-19]** We have supported [**MathVision**](https://mathvision-cuhk.github.io), thanks to [**scikkk**](https://github.com/scikkk)🔥🔥🔥
 - **[2024-07-19]** We have supported [**LLaVA-Next-Interleave-7B**](https://huggingface.co/lmms-lab/llava-next-interleave-qwen-7b) and [**LLaVA-Next-LLaMA-3**](https://huggingface.co/lmms-lab/llama3-llava-next-8b) 🔥🔥🔥
 - **[2024-07-18]** We have supported [**BLINK**](https://zeyofu.github.io/blink/), thanks to [**zeyofu**](https://zeyofu.github.io)🔥🔥🔥
 - **[2024-07-18]** We released the first version of [**VLMEvalKit Technical Report**](https://www.arxiv.org/abs/2407.11691). We greatly welcome contributions from the community and are glad to share the corresponding credit: All Contributions will be acknowledged in the report and Contributors with 3 or more major contributions (implementing an MLLM, benchmark, or major feature) can share the authorship of the tech report 🔥🔥🔥
@@ -33,8 +35,6 @@ English | [<a href="/docs/zh-CN/README_zh-CN.md">简体中文</a>] | [<a href="/
 - **[2024-07-08]** We have supported [**InternLM-XComposer-2.5**](https://github.com/InternLM/InternLM-XComposer), thanks to [**LightDXY**](https://github.com/LightDXY) 🔥🔥🔥
 - **[2024-07-08]** We have supported [**InternVL2**](https://huggingface.co/OpenGVLab/InternVL2-26B), thanks to [**czczup**](https://github.com/czczup) 🔥🔥🔥
 - **[2024-06-27]** We have supported [**Cambrian**](https://cambrian-mllm.github.io/) 🔥🔥🔥
-- **[2024-06-27]** We have supported [**AesBench**](https://github.com/yipoh/AesBench), thanks to [**Yipo Huang**](https://github.com/yipoh) and [**Quan Yuan**](https://github.com/dylanqyuan)🔥🔥🔥
-- **[2024-06-26]** We have supported the evaluation of [**CongRong**](https://mllm.cloudwalk.com/web), it ranked **3rd** on the [**Open VLM Leaderboard**](https://huggingface.co/spaces/opencompass/open_vlm_leaderboard) 🔥🔥🔥
 
 ## 📊 Datasets, Models, and Evaluation Results
 
@@ -60,8 +60,8 @@ English | [<a href="/docs/zh-CN/README_zh-CN.md">简体中文</a>] | [<a href="/
 | [**RealWorldQA**](https://x.ai/blog/grok-1.5v)            | RealWorldQA | MCQ                                          | [**POPE**](https://github.com/AoiDragon/POPE) | POPE                                           | Y/N                                            |
 | [**Core-MM**](https://github.com/core-mm/core-mm)-          | CORE_MM | VQA                                               | [**MMT-Bench**](https://mmt-bench.github.io)                 | MMT-Bench_[VAL/VAL_MI/ALL/ALL_MI]                | MCQ  |
 | [**MLLMGuard**](https://github.com/Carol-gutianle/MLLMGuard) - | MLLMGuard_DS | VQA | [**AesBench**](https://github.com/yipoh/AesBench)+ | AesBench_[VAL/TEST] | MCQ |
-| [**VCR-wiki**](https://huggingface.co/vcr-org/)+ | VCR\_[EN/ZH]\_[EASY/HARD]_[ALL/500/100] | VQA | [**MMLongBench-Doc**](https://mayubo2333.github.io/MMLongBench-Doc/)+ | MMLongBench_DOC | VQA |
-| [**BLINK**](https://zeyofu.github.io/blink/) + | BLINK | MCQ |  |  |  |
+| [**VCR-wiki**](https://huggingface.co/datasets/vcr-org/)+ | VCR\_[EN/ZH]\_[EASY/HARD]_[ALL/500/100] | VQA | [**MMLongBench-Doc**](https://mayubo2333.github.io/MMLongBench-Doc/)+ | MMLongBench_DOC | VQA |
+| [**BLINK**](https://zeyofu.github.io/blink/) + | BLINK | MCQ | [**MathVision**](https://mathvision-cuhk.github.io)+ | MathVision<br>MathVision_MINI | VQA |
 
 **\*** We only provide a subset of the evaluation results, since some VLMs do not yield reasonable results under the zero-shot setting
 
@@ -82,7 +82,7 @@ VLMEvalKit will use a **judge LLM** to extract answer from the output if you set
 | [**GPT-4v (20231106, 20240409)**](https://platform.openai.com/docs/guides/vision) 🎞️🚅 | [**GPT-4o**](https://openai.com/index/hello-gpt-4o/) 🎞️🚅      | [**Gemini-1.0-Pro**](https://platform.openai.com/docs/guides/vision) 🎞️🚅 | [**Gemini-1.5-Pro**](https://platform.openai.com/docs/guides/vision) 🎞️🚅 | [**Step-1V**](https://www.stepfun.com/#step1v) 🎞️🚅 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------- |
 | [**Reka-[Edge / Flash / Core]**](https://www.reka.ai)🚅       | [**Qwen-VL-[Plus / Max]**](https://huggingface.co/spaces/Qwen/Qwen-VL-Max) 🎞️🚅 | [**Claude3-[Haiku / Sonnet / Opus]**](https://www.anthropic.com/news/claude-3-family) 🎞️🚅 | [**GLM-4v**](https://open.bigmodel.cn/dev/howuse/glm4v) 🚅    | [**CongRong**](https://mllm.cloudwalk.com/web) 🎞️🚅 |
-| [**Claude3.5-Sonnet**](https://www.anthropic.com/news/claude-3-5-sonnet) 🎞️🚅 |                                                              |                                                              |                                                              |                                                   |
+| [**Claude3.5-Sonnet**](https://www.anthropic.com/news/claude-3-5-sonnet) 🎞️🚅 | [**GPT-4o-Mini**](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/) 🎞️🚅 |                                                              |                                                              |                                                   |
 
 **Supported PyTorch / HF Models**
 
@@ -170,10 +170,15 @@ If you use VLMEvalKit in your research or wish to refer to published OpenSource 
 }
 ```
 
-## 💻 Other Projects in OpenCompass
+<p align="right"><a href="#top">🔝Back to top</a></p>
 
-- [Opencompass](https://github.com/open-compass/opencompass/): An LLM evaluation platform, supporting a wide range of models (LLaMA, LLaMa2, ChatGLM2, ChatGPT, Claude, etc) over 50+ datasets.
-- [MMBench](https://github.com/open-compass/MMBench/): Official Repo of "MMBench: Is Your Multi-modal Model an All-around Player?"
-- [BotChat](https://github.com/open-compass/BotChat/): Evaluating LLMs' multi-round chatting capability.
-- [LawBench](https://github.com/open-compass/LawBench): Benchmarking Legal Knowledge of Large Language Models.
-- [Ada-LEval](https://github.com/open-compass/Ada-LEval): Length Adaptive Evaluation, measures the long-context modeling capability of language models.
+[github-contributors-link]: https://github.com/open-compass/VLMEvalKit/graphs/contributors
+[github-contributors-shield]: https://img.shields.io/github/contributors/open-compass/VLMEvalKit?color=c4f042&labelColor=black&style=flat-square
+[github-forks-link]: https://github.com/open-compass/VLMEvalKit/network/members
+[github-forks-shield]: https://img.shields.io/github/forks/open-compass/VLMEvalKit?color=8ae8ff&labelColor=black&style=flat-square
+[github-issues-link]: https://github.com/open-compass/VLMEvalKit/issues
+[github-issues-shield]: https://img.shields.io/github/issues/open-compass/VLMEvalKit?color=ff80eb&labelColor=black&style=flat-square
+[github-license-link]: https://github.com/open-compass/VLMEvalKit/blob/main/LICENSE
+[github-license-shield]: https://img.shields.io/github/license/open-compass/VLMEvalKit?color=white&labelColor=black&style=flat-square
+[github-stars-link]: https://github.com/open-compass/VLMEvalKit/stargazers
+[github-stars-shield]: https://img.shields.io/github/stars/open-compass/VLMEvalKit?color=ffcb47&labelColor=black&style=flat-square

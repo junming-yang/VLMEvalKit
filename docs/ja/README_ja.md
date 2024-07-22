@@ -1,23 +1,23 @@
+<div align="center">
+
 ![LOGO](http://opencompass.openxlab.space/utils/MMLB.jpg)
-<div align="center"><b>大規模視覚言語モデルの評価ツールキット</b></div>
 
-<div align="center">
-[<a href="/README.md">英語</a>] | [<a href="/docs/zh-CN/README_zh-CN.md">中国語</a>] | 日本語
-</div>
+<b>VLMEvalKit: 大規模視覚言語モデルの評価ツールキット</b>
 
-<div align="center">
-<a href="https://rank.opencompass.org.cn/leaderboard-multimodal">🏆 リーダーボード </a> •
-<a href="#-データセットとモデル">📊データセット & モデル </a> •
-<a href="#%EF%B8%8F-クイックスタート">🏗️クイックスタート </a> •
-<a href="#%EF%B8%8F-開発ガイド">🛠️開発 </a> •
-<a href="#-VLMEvalKitの目標">🎯目標 </a> •
-<a href="#%EF%B8%8F-引用">🖊️引用 </a>
-</div>
+[![][github-contributors-shield]][github-contributors-link] • [![][github-forks-shield]][github-forks-link] • [![][github-stars-shield]][github-stars-link] • [![][github-issues-shield]][github-issues-link] • [![][github-license-shield]][github-license-link]
 
-<div align="center">
-<a href="https://huggingface.co/spaces/opencompass/open_vlm_leaderboard">🤗 リーダーボード</a>
-<a href="https://openxlab.org.cn/apps/detail/kennyutc/open_mllm_leaderboard">(🤖 OpenXlabミラー)</a>
-<a href="https://discord.gg/evDT4GZmxN">🔊 Discordチャンネル</a>
+[English](/README.md) | [简体中文](/docs/zh-CN/README_zh-CN.md) | 日本語
+
+<a href="https://rank.opencompass.org.cn/leaderboard-multimodal">🏆 OpenCompass Learderboard </a> •
+<a href="#-datasets-models-and-evaluation-results">📊Datasets & Models </a> •
+<a href="#%EF%B8%8F-quickstart">🏗️Quickstart </a> •
+<a href="#%EF%B8%8F-development-guide">🛠️Development </a> •
+<a href="#-the-goal-of-vlmevalkit">🎯Goal </a> •
+<a href="#%EF%B8%8F-citation">🖊️Citation </a>
+
+<a href="https://huggingface.co/spaces/opencompass/open_vlm_leaderboard">🤗 HF Leaderboard</a> •
+<a href="https://discord.gg/evDT4GZmxN">🔊 Discord Channel</a> •
+<a href="https://www.arxiv.org/abs/2407.11691">📝 Technical Report</a>
 </div>
 
 **VLMEvalKit**（pythonパッケージ名は**vlmeval**）は、**大規模視覚言語モデル（LVLMs）**の**オープンソース評価ツールキット**です。このツールキットは、複数のリポジトリでのデータ準備という重労働なしに、さまざまなベンチマークでLVLMsの**ワンコマンド評価**を可能にします。VLMEvalKitでは、すべてのLVLMsに対して**生成ベースの評価**を採用し、**正確なマッチング**と**LLMベースの回答抽出**の両方で得られた評価結果を提供します。
@@ -48,8 +48,8 @@ PS: 日本語の README には最新のアップデートがすべて含まれ�
 | [**RealWorldQA**](https://x.ai/blog/grok-1.5v)            | RealWorldQA | MCQ                                          | [**POPE**](https://github.com/AoiDragon/POPE) | POPE                                           | Y/N                                            |
 | [**Core-MM**](https://github.com/core-mm/core-mm)-          | CORE_MM | VQA                                               | [**MMT-Bench**](https://mmt-bench.github.io)                 | MMT-Bench_[VAL/VAL_MI/ALL/ALL_MI]                | MCQ  |
 | [**MLLMGuard**](https://github.com/Carol-gutianle/MLLMGuard) - | MLLMGuard_DS | VQA | [**AesBench**](https://github.com/yipoh/AesBench) | AesBench_[VAL/TEST] | MCQ |
-| [**VCR-wiki**](https://huggingface.co/vcr-org/)+ | VCR、_[EN/ZH]\_[EASY/HARD]_[ALL/500/100] | VQA | [**MMLongBench-Doc**](https://mayubo2333.github.io/MMLongBench-Doc/)+ | MMLongBench_DOC | VQA |
-| [**BLINK**](https://zeyofu.github.io/blink/) + | BLINK | MCQ |  |  |  |
+| [**VCR-wiki**](https://huggingface.co/datasets/vcr-org/)+ | VCR、_[EN/ZH]\_[EASY/HARD]_[ALL/500/100] | VQA | [**MMLongBench-Doc**](https://mayubo2333.github.io/MMLongBench-Doc/)+ | MMLongBench_DOC | VQA |
+| [**BLINK**](https://zeyofu.github.io/blink/) + | BLINK | MCQ | [**MathVision**](https://mathvision-cuhk.github.io)+ | MathVision<br>MathVision_MINI | VQA |
 
 **\*** ゼロショット設定で合理的な結果を出せないVLMの一部の評価結果のみを提供しています
 
@@ -70,14 +70,7 @@ VLMEvalKitは、キーを設定すると**判定LLM**を使用して出力から
 | [**GPT-4v (20231106, 20240409)**](https://platform.openai.com/docs/guides/vision) 🎞️🚅 | [**GPT-4o**](https://openai.com/index/hello-gpt-4o/) 🎞️🚅      | [**Gemini-1.0-Pro**](https://platform.openai.com/docs/guides/vision) 🎞️🚅 | [**Gemini-1.5-Pro**](https://platform.openai.com/docs/guides/vision) 🎞️🚅 | [**Step-1V**](https://www.stepfun.com/#step1v) 🎞️🚅 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------- |
 | [**Reka-[Edge / Flash / Core]**](https://www.reka.ai)🚅       | [**Qwen-VL-[Plus / Max]**](https://huggingface.co/spaces/Qwen/Qwen-VL-Max) 🎞️🚅 | [**Claude-3v-[Haiku / Sonnet / Opus]**](https://www.anthropic.com/news/claude-3-family) 🎞️🚅 | [**GLM-4v**](https://open.bigmodel.cn/dev/howuse/glm4v) 🚅    | [**CongRong**](https://mllm.cloudwalk.com/web) 🎞️🚅 |
-| [**Claude3.5-Sonnet**](https://www.anthropic.com/news/claude-3-5-sonnet) 🎞️🚅 |                                                              |                                                              |                                                              |                                                   |
-
-**Supported PyTorch / HF Models**
-
-| [**GPT-4v (20231106, 20240409)**](https://platform.openai.com/docs/guides/vision) 🎞️🚅 | [**GPT-4o**](https://openai.com/index/hello-gpt-4o/) 🎞️🚅      | [**Gemini-1.0-Pro**](https://platform.openai.com/docs/guides/vision) 🎞️🚅 | [**Gemini-1.5-Pro**](https://platform.openai.com/docs/guides/vision) 🎞️🚅 | [**Step-1V**](https://www.stepfun.com/#step1v) 🎞️🚅 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------- |
-| [**Reka-[Edge / Flash / Core]**](https://www.reka.ai)🚅       | [**Qwen-VL-[Plus / Max]**](https://huggingface.co/spaces/Qwen/Qwen-VL-Max) 🎞️🚅 | [**Claude3-[Haiku / Sonnet / Opus]**](https://www.anthropic.com/news/claude-3-family) 🎞️🚅 | [**GLM-4v**](https://open.bigmodel.cn/dev/howuse/glm4v) 🚅    | [**CongRong**](https://mllm.cloudwalk.com/web) 🎞️🚅 |
-| [**Claude3.5-Sonnet**](https://www.anthropic.com/news/claude-3-5-sonnet) 🎞️🚅 |                                                              |                                                              |                                                              |                                                   |
+| [**Claude3.5-Sonnet**](https://www.anthropic.com/news/claude-3-5-sonnet) 🎞️🚅 | [**GPT-4o-Mini**](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/) 🎞️🚅 |                                                              |                                                              |                                                   |
 
 **Supported PyTorch / HF Models**
 
@@ -163,10 +156,15 @@ print(ret)  # 提供された画像にはリンゴが2個あります。
 }
 ```
 
-## 💻 OpenCompassの他のプロジェクト
+<p align="right"><a href="#top">🔝Top に戻る</a></p>
 
-- [Opencompass](https://github.com/open-compass/opencompass/): LLM評価プラットフォームで、LLaMA、LLaMa2、ChatGLM2、ChatGPT、Claudeなどの幅広いモデルを50以上のデータセットでサポートしています。
-- [MMBench](https://github.com/open-compass/MMBench/): "MMBench: Is Your Multi-modal Model an All-around Player?"の公式リポジトリ。
-- [BotChat](https://github.com/open-compass/BotChat/): LLMのマルチラウンドチャット能力を評価します。
-- [LawBench](https://github.com/open-compass/LawBench): 大規模言語モデルの法的知識をベンチマークします。
-- [Ada-LEval](https://github.com/open-compass/Ada-LEval): 言語モデルの長文コンテキストモデリング能力を測定します。
+[github-contributors-link]: https://github.com/open-compass/VLMEvalKit/graphs/contributors
+[github-contributors-shield]: https://img.shields.io/github/contributors/open-compass/VLMEvalKit?color=c4f042&labelColor=black&style=flat-square
+[github-forks-link]: https://github.com/open-compass/VLMEvalKit/network/members
+[github-forks-shield]: https://img.shields.io/github/forks/open-compass/VLMEvalKit?color=8ae8ff&labelColor=black&style=flat-square
+[github-issues-link]: https://github.com/open-compass/VLMEvalKit/issues
+[github-issues-shield]: https://img.shields.io/github/issues/open-compass/VLMEvalKit?color=ff80eb&labelColor=black&style=flat-square
+[github-license-link]: https://github.com/open-compass/VLMEvalKit/blob/main/LICENSE
+[github-license-shield]: https://img.shields.io/github/license/open-compass/VLMEvalKit?color=white&labelColor=black&style=flat-square
+[github-stars-link]: https://github.com/open-compass/VLMEvalKit/stargazers
+[github-stars-shield]: https://img.shields.io/github/stars/open-compass/VLMEvalKit?color=ffcb47&labelColor=black&style=flat-square
